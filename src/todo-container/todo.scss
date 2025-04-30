@@ -1,17 +1,48 @@
-.todo-inner-container {
-    background-color: white;
-    max-width: 800px;
-    display: inline-block;
-    box-shadow: 3px 1px 10px rgba(0, 0, 0, 0.25);
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
-    &.todo-task {
-        width: 750px;
-        margin-bottom: 2px;
-        padding: 25px;
-        border-bottom: 5px solid rgb(249 97 96);
-
-        &:last-child {
-            border: none;
-          }
+    .todo-wrapper {
+        flex: 1;
+        text-align: center;
+        box-shadow: 3px 7px 10px rgba(1, 1, 1, .5);
+        background-color: white;
+    
+        .todo-task-bar {
+            margin-top: 10px;
+            padding: 20px;
+    
+            input {
+                width: 35vw;
+                height: 5vh;
+                border-radius: 5px;
+            }
+    
+            .task-submit {
+                background-color: #cdcdcd;
+                width: 7rem;
+                height: 2rem;
+                border-radius: 5px;
+                border: none;
+                margin-left: 10px;
+            }
+        }
+    
+        .todo-list {
+    
+            p{
+                flex: 1;
+            }
+    
+            .todo-task {
+                margin-top: 10px;
+                background-color: #e8e8e8bd;
+                border-radius: 5px;
+                padding: 10px;
+                display: flex;
+                align-items: baseline;
+            }
+        }
     }
 }
