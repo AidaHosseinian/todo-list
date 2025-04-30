@@ -1,14 +1,12 @@
 .footer {
-    background-color: rgb(249 97 96);
+    background-color: rgb(169, 40, 40);
     font-size: 12px;
     color: white;
-    width: 800px;
     height: 3rem;
     text-align: center;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 3px 7px 10px rgba(1, 1, 1, .5);
+    box-shadow: 0 -2px 3px rgba(0, 0, 0, .2);
+    border-top: 1px solid rgb(110, 14, 14);
 }
