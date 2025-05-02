@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import './todo.scss';
 
-function TodoForm() {
+function TodoForm({addTodo}) {
     const [value , setValue] = useState("")
 
     const handleChange =(e) => {
         setValue(e.target.value)
     }
-    const handleSubmit =(e) => {
-        console.log(value)
+
+    const handleAddTask =(e) => {
+        e.preventDefault()
+        addTodo(value)
+        setValue("")
     }
      
-    return (<form onSubmit={handleSubmit}>
+    return (<form onSubmit={handleAddTask}>
         <input 
             type="search"
             placeholder="What is your Tasks Today?"

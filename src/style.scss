@@ -12,8 +12,14 @@ body {
     flex-direction: column;
     height: 100vh;
 
-    .todo-container {
+    .todo-wrapper {
         flex: 1;
+
+        button {
+            padding: 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
     }
 
     ul {
