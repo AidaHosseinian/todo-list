@@ -4,15 +4,17 @@ import './style.scss';
 import Header from "./header/Header.jsx";
 import Footer from "./footer/Footer.jsx";
 import TodoWrapper from "./todo-container/TodoWrapper.jsx";
+import { StoreProvider } from "./store/store.js";
+import { initialState, reducer } from "./store/reducer.js";
 
 function App() {
-    return (
+    return (<StoreProvider initialState={initialState} reducer={reducer}>
         <div className="layout"> 
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <Header />
             <TodoWrapper />
             <Footer />
         </div>
-)}
+    </StoreProvider>)
+}
 
 export default App;

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import './todo.scss';
+import {addTodo} from "../store/reducer.js";
+import { useStore } from "../store/store.js";
 
-function TodoForm({addTodo}) {
-    const [value , setValue] = useState("")
+function TodoForm() {
+    const [store, dispatch] = useStore();
+    const [value, setValue] = useState('');
 
     const handleChange =(e) => {
         setValue(e.target.value)
@@ -10,7 +13,7 @@ function TodoForm({addTodo}) {
 
     const handleAddTask =(e) => {
         e.preventDefault()
-        addTodo(value)
+        dispatch(addTodo(value))
         setValue("")
     }
      

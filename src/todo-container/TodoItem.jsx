@@ -1,8 +1,10 @@
 import React,{useState} from "react";
 import './todo.scss';
+import {deleteTodo, toggleCompleted, onTodoEdit} from "../store/reducer";
+import { useStore } from "../store/store";
 
-
-function TodoItem({id, task, isComplete, onComplete, onDelete, onEdit}) {
+function TodoItem({id, task, isComplete}) {
+  const [store, dispatch] = useStore();
   const[editValue, setEditVAlue] = useState(task)
   const [isEdit, setIsEdit]= useState(false)
 
@@ -16,7 +18,15 @@ function TodoItem({id, task, isComplete, onComplete, onDelete, onEdit}) {
 
   const onEditSaved =() => {
     setIsEdit(false)
-    onEdit(id, editValue)
+    dispatch(onTodoEdit(id, editValue))
+  }
+
+  const onComplete =() => {
+    dispatch(toggleCompleted(id))
+  }
+
+  const onDelete =() => {
+    dispatch(deleteTodo(id))
   }
      
     return (<>   
@@ -28,8 +38,8 @@ function TodoItem({id, task, isComplete, onComplete, onDelete, onEdit}) {
             />
             <button className="save-btn" type="button" onClick={onEditSaved}>Click To Save</button>
             </li> : <li className="todo-item" key={id}>
-                <p className={` ${isComplete ? "complete" : ""}`} onClick={() => onComplete(id)}>{task}</p>
-                <button className="delete-btn" type="button" onClick={() => onDelete(id)}>Delete</button>
+                <p className={`${isComplete ? "complete" : ""}`} onClick={onComplete}>{task}</p>
+                <button className="delete-btn" type="button" onClick={onDelete}>Delete</button>
                 <button className="edit-btn" type="button" onClick={handleEdit}>Edit</button>
             </li>}
         </>
